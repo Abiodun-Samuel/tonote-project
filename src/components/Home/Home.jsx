@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FaSignInAlt } from "react-icons/fa";
 import "./home.css";
 
 const Home = () => {
@@ -17,7 +18,9 @@ const Home = () => {
                   voluptatum vel? Fugit.
                 </p>
                 <Link to="/register" className="btn btn-primary my-2">
-                  Register Now
+                  <span className="d-flex align-items-center">
+                    <FaSignInAlt className="mx-2" /> Register Now
+                  </span>
                 </Link>
               </div>
             </div>

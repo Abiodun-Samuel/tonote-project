@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import logo from "../../../images/main.svg";
+// import logo from "../../../images/main.svg";
 import "./header.css";
 import { CgMenuGridR } from "react-icons/cg";
+import { FaSignInAlt, FaHome } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -30,12 +31,12 @@ const Header = () => {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link className="nav-link" to="/">
-                  Home
+                  <FaHome className="mx-2" /> Home
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/register">
-                  Register
+                  <FaSignInAlt className="mx-2" /> Register
                 </Link>
               </li>
             </ul>
