@@ -1,0 +1,75 @@
+/* header  */
+.navbar-brand {
+   text-transform: capitalize;
+   font-family: "Pacifico", cursive;
+   letter-spacing: 0.5px;
+   font-size: 1.2rem;
+   transition: 500ms;
+   margin: 0;
+   padding: 0;
+   color: var(--blue);
+   font-weight: bold;
+}
+
+.navbar-brand:hover {
+   color: var(--black);
+}
+
+.nav-item .nav-link,
+.nav-item .nav-link:focus {
+   color: var(--blue);
+   font-size: 1rem;
+   font-weight: 500;
+   text-transform: capitalize;
+   letter-spacing: 0px;
+   padding: 5px;
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+}
+
+.nav-item .nav-link:hover {
+   color: var(--black);
+   background-color: var(--blue-0);
+   border-radius: 5px;
+}
+
+.nav-item .nav-link .nav-icon {
+   display: flex;
+   align-items: center;
+   position: relative;
+}
+
+button.navbar-toggler {
+   margin: 0;
+   padding: 0;
+}
+
+button.navbar-toggler:focus,
+button.navbar-toggler:active,
+button.navbar-toggler-icon:focus {
+   outline: 1.5px solid var(--blue);
+   box-shadow: none;
+}
+
+.navbar--icon {
+   font-size: 1.8rem;
+   padding: 0;
+   font-weight: bolder;
+   color: var(--blue);
+   margin: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+@media screen and (max-width: 992px) {
+
+   .nav-item .nav-link,
+   .nav-item .nav-link:focus {
+      margin: 1rem 0;
+      padding: 0.7rem 0;
+   }
+}
