@@ -8,7 +8,7 @@
    margin: 0;
    padding: 0;
    color: var(--blue);
-   font-weight: bold;
+   font-weight: bolder;
 }
 
 .navbar-brand:hover {

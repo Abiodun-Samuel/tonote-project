@@ -1,11 +1,11 @@
 import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Others/Header/Header";
+import Header from "./components/Header/Header";
 import { lazy, Suspense } from "react";
 import "./app.css";
 
 const Register = lazy(() => import("./components/Register/Register"));
-const NotFound = lazy(() => import("./components/Others/NotFound/NotFound"));
+const NotFound = lazy(() => import("./components/NotFound/NotFound"));
 
 function App() {
   return (

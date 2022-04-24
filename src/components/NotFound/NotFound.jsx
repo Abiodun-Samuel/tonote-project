@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import error from "../../../images/error.jpg";
+import error from "../../images/error.jpg";
 
 const NotFound = () => {
   return (
