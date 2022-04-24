@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import "./register.css";
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
-import { USER_REGEX, EMAIL_REGEX } from "../../utils/constants";
+import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
 import { FaSignInAlt } from "react-icons/fa";
 
 const Register = () => {
   const userNameRef = useRef();
-  // const genderRef = useRef();
-  // const errRef = useRef();
 
   const [userName, setUserName] = useState("");
   const [validName, setValidName] = useState(false);
@@ -17,9 +15,17 @@ const Register = () => {
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
 
+  const [userPhone, setUserPhone] = useState("");
+  const [validPhone, setValidPhone] = useState(false);
+  const [phoneFocus, setPhoneFocus] = useState(false);
+
   const [gender, setGender] = useState("");
   const [validGender, setValidGender] = useState(false);
   const [genderFocus, setGenderFocus] = useState(false);
+
+  const [date, setDate] = useState("");
+  const [validDate, setValidDate] = useState(false);
+  const [dateFocus, setDateFocus] = useState(false);
 
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
@@ -37,12 +43,29 @@ const Register = () => {
   }, [userEmail]);
 
   useEffect(() => {
+    setValidPhone(PHONE_REGEX.test(userPhone));
+  }, [userPhone]);
+
+  useEffect(() => {
     if (gender || gender !== "") {
       setValidGender(true);
     } else {
       setValidGender(false);
     }
   }, [gender]);
+
+  useEffect(() => {
+    const year = date.substring(0, 4);
+    let diff = Number(new Date().getFullYear()) - Number(year);
+    if (Math.sign(diff) === -1 || Math.sign(diff) === -0) {
+      diff = diff * -1;
+    }
+    if (diff < 18) {
+      setValidDate(false);
+    } else {
+      setValidDate(true);
+    }
+  }, [date]);
 
   // useEffect(() => {
   //   setErrMsg("");
@@ -52,7 +75,7 @@ const Register = () => {
     e.preventDefault();
     // if button enabled with JS hack
     const v1 = USER_REGEX.test(userName);
-    // const v2 = PWD_REGEX.test(pwd);
+
     if (!v1) {
       setErrMsg("Invalid Entry");
       return;
@@ -139,8 +162,8 @@ const Register = () => {
                   </div>
                 </div>
 
-                {/* email and phone number */}
                 <div className="form-row my-3">
+                  {/* email  */}
                   <div className="col-6">
                     <label htmlFor="useremail">
                       Email:
@@ -178,6 +201,46 @@ const Register = () => {
                       Please enter a valid email
                     </p>
                   </div>
+
+                  {/* phone number  */}
+                  <div className="col-6">
+                    <label htmlFor="userphone">
+                      Phone:
+                      <FaCheck className={validPhone ? "valid" : "hide"} />
+                      <FaTimes
+                        className={
+                          validPhone || !userPhone ? "hide" : "invalid"
+                        }
+                      />
+                    </label>
+                    <input
+                      className={validPhone ? "validinput" : ""}
+                      type="tel"
+                      id="userphone"
+                      pattern={PHONE_REGEX}
+                      autoComplete="off"
+                      onChange={(e) => setUserPhone(e.target.value)}
+                      value={userPhone}
+                      required
+                      placeholder="Enter your phone number"
+                      aria-invalid={validPhone ? "false" : "true"}
+                      aria-describedby="uidnote"
+                      onFocus={() => setPhoneFocus(true)}
+                      onBlur={() => setPhoneFocus(false)}
+                    />
+                    <p
+                      id="uidnote"
+                      className={
+                        phoneFocus && userPhone && !validPhone
+                          ? "instructions"
+                          : "offscreen"
+                      }
+                    >
+                      <FaInfoCircle />
+                      Please enter a valid Phone Number <br />
+                      Format : 09XX XXX XXXX || 08XX XXX XXXX || 07XX XXX XXXX
+                    </p>
+                  </div>
                 </div>
 
                 <div className="form-row my-3">
@@ -191,10 +254,9 @@ const Register = () => {
                       />
                     </label>
                     <select
-                      className={`${validGender} ? "validinput" : "" `}
+                      className={validPhone ? "validinput" : ""}
                       name="gender"
                       id="gender"
-                      // ref={genderRef}
                       autoComplete="off"
                       onChange={(e) => {
                         setGender(e.target.value);
@@ -230,77 +292,56 @@ const Register = () => {
                     </p>
                   </div>
 
-                  <div className="col-6"></div>
+                  <div className="col-6">
+                    <label htmlFor="date">
+                      Date Of Birth:
+                      <FaCheck className={validDate ? "valid" : "hide"} />
+                      <FaTimes
+                        className={validDate || !date ? "hide" : "invalid"}
+                      />
+                    </label>
+                    <input
+                      className={validDate ? "validinput" : ""}
+                      type="date"
+                      id="date"
+                      autoComplete="off"
+                      onChange={(e) => setDate(e.target.value)}
+                      value={date}
+                      required
+                      placeholder="Enter your date of birth"
+                      aria-invalid={validDate ? "false" : "true"}
+                      aria-describedby="uidnote"
+                      onFocus={() => setDateFocus(true)}
+                      onBlur={() => setDateFocus(false)}
+                    />
+                    <p
+                      id="uidnote"
+                      className={
+                        dateFocus && date && !validDate
+                          ? "instructions"
+                          : "offscreen"
+                      }
+                    >
+                      <FaInfoCircle />
+                      Sorry, you must be above 18years old to attend this event.
+                    </p>
+                  </div>
                 </div>
 
-                {/* <label htmlFor="password">
-                  Password:
-                  <FaCheck className={validPwd ? "valid" : "hide"} />
-                  <FaTimes className={validPwd || !pwd ? "hide" : "invalid"} />
-                </label>
-
-                <input
-                  type="password"
-                  id="password"
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
-                  required
-                  aria-invalid={validPwd ? "false" : "true"}
-                  aria-describedby="pwdnote"
-                  onFocus={() => setPwdFocus(true)}
-                  onBlur={() => setPwdFocus(false)}
-                />
-                <p
-                  id="pwdnote"
-                  className={
-                    pwdFocus && !validPwd ? "instructions" : "offscreen"
-                  }
-                >
-                  <FaInfoCircle />
-                  8 to 24 characters.
-                  <br />
-                  Must include uppercase and lowercase letters, a number and a
-                  special character.
-                  <br />
-                  Allowed special characters:{" "}
-                  <span aria-label="exclamation mark">!</span>{" "}
-                  <span aria-label="at symbol">@</span>{" "}
-                  <span aria-label="hashtag">#</span>{" "}
-                  <span aria-label="dollar sign">$</span>{" "}
-                  <span aria-label="percent">%</span>
-                </p>
-
-                <label htmlFor="confirm_pwd">
-                  Confirm Password:
-                  <FaCheck
-                    className={validMatch && matchPwd ? "valid" : "hide"}
-                  />
-                  <FaTimes
-                    className={validMatch || !matchPwd ? "hide" : "invalid"}
-                  />
-                </label>
-                <input
-                  type="password"
-                  id="confirm_pwd"
-                  onChange={(e) => setMatchPwd(e.target.value)}
-                  value={matchPwd}
-                  required
-                  aria-invalid={validMatch ? "false" : "true"}
-                  aria-describedby="confirmnote"
-                  onFocus={() => setMatchFocus(true)}
-                  onBlur={() => setMatchFocus(false)}
-                />
-                <p
-                  id="confirmnote"
-                  className={
-                    matchFocus && !validMatch ? "instructions" : "offscreen"
-                  }
-                >
-                  <FaInfoCircle />
-                  Must match the first password input field.
-                </p> */}
                 <hr />
-                <button disabled={!validName ? true : false}>
+
+                <button
+                  className="button"
+                  disabled={
+                    !validName ||
+                    !validGender ||
+                    !validEmail ||
+                    !validPhone ||
+                    !validDate
+                      ? true
+                      : false
+                  }
+                >
                   <span className="d-flex justify-content-center align-items-center">
                     <FaSignInAlt className="mx-2" /> Register
                   </span>
