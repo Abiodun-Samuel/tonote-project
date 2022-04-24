@@ -30,6 +30,8 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  console.log(date);
+
   useEffect(() => {
     userNameRef.current.focus();
   }, []);
@@ -56,13 +58,11 @@ const Register = () => {
 
   useEffect(() => {
     const year = date.substring(0, 4);
-    let diff = Number(new Date().getFullYear()) - Number(year);
-    if (Math.sign(diff) === -1 || Math.sign(diff) === -0) {
-      diff = diff * -1;
-    }
-    if (diff < 18) {
+    if (Number(new Date().getFullYear()) < Number(year)) {
       setValidDate(false);
-    } else {
+    } else if (Number(new Date().getFullYear()) - Number(year) < 18) {
+      setValidDate(false);
+    } else if (Number(new Date().getFullYear()) - Number(year) > 18) {
       setValidDate(true);
     }
   }, [date]);
@@ -300,6 +300,7 @@ const Register = () => {
                         className={validDate || !date ? "hide" : "invalid"}
                       />
                     </label>
+
                     <input
                       className={validDate ? "validinput" : ""}
                       type="date"
@@ -314,6 +315,7 @@ const Register = () => {
                       onFocus={() => setDateFocus(true)}
                       onBlur={() => setDateFocus(false)}
                     />
+
                     <p
                       id="uidnote"
                       className={
