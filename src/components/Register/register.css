@@ -4,7 +4,7 @@
    background-position: center;
    min-height: 100vh;
    display: flex;
-   padding-top: 5.5rem;
+   padding-top: 5rem;
    justify-content: center;
 }
 
@@ -26,8 +26,8 @@ input[type="date"]
  {
   padding: 0.4rem 0.5rem;
   outline: none;
-  border: 1px solid #d0d0d0;
-   outline: 1px solid #d0d0d0;
+  border: 0.5px solid #d0d0d0;
+   outline: 0.5px solid #d0d0d0;
   width: 100%;
    border-radius: 5px;
    font-size: 0.8rem;
@@ -39,8 +39,8 @@ input[type="date"]:focus,
 input[type="text"]:focus,
 input[type="tel"]:focus,
 select:focus{
-  border: 1px solid var(--red);
-   outline: 1px solid var(--red);
+  border: 0.5px solid var(--red);
+   outline: 0.5px solid var(--red);
    border-radius: 5px;
 }
 
@@ -94,7 +94,7 @@ color: var(--white);
     color: var(--red);
     padding: 0.5rem;
     position: absolute;
-    bottom: -90px;
+    top: 70px;
     z-index: 10000000;
 }
 
@@ -117,12 +117,12 @@ color: var(--white);
 }
 
 .validinput{
-   border: 0.7px solid limegreen !important;
-   outline: 0.7px solid limegreen !important;
+   border: 0.5px solid limegreen !important;
+   outline: 0.5px solid limegreen !important;
 }
 .invalidinput{
-   border: 0.7px solid red !important;
-   outline: 0.7px solid red !important;
+   border: 0.5px solid red !important;
+   outline: 0.5px solid red !important;
 }
 
 .invalid {

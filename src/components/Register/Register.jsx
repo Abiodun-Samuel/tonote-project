@@ -30,8 +30,6 @@ const Register = () => {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  console.log(date);
-
   useEffect(() => {
     userNameRef.current.focus();
   }, []);
@@ -49,7 +47,7 @@ const Register = () => {
   }, [userPhone]);
 
   useEffect(() => {
-    if (gender || gender !== "") {
+    if (gender !== "") {
       setValidGender(true);
     } else {
       setValidGender(false);
@@ -57,13 +55,19 @@ const Register = () => {
   }, [gender]);
 
   useEffect(() => {
-    const year = date.substring(0, 4);
-    if (Number(new Date().getFullYear()) < Number(year)) {
+    if (date) {
+      const year = date.substring(0, 4);
+      if (Number(new Date().getFullYear()) < Number(year)) {
+        setValidDate(false);
+      } else if (Number(new Date().getFullYear()) - Number(year) < 18) {
+        setValidDate(false);
+      } else if (Number(new Date().getFullYear()) - Number(year) >= 18) {
+        setValidDate(true);
+      } else {
+        setValidDate(false);
+      }
+    } else {
       setValidDate(false);
-    } else if (Number(new Date().getFullYear()) - Number(year) < 18) {
-      setValidDate(false);
-    } else if (Number(new Date().getFullYear()) - Number(year) > 18) {
-      setValidDate(true);
     }
   }, [date]);
 
@@ -110,6 +114,7 @@ const Register = () => {
     // }
   };
 
+  console.log(gender);
   return (
     <div className="register">
       <div className="container">
@@ -250,7 +255,7 @@ const Register = () => {
                       Gender:
                       <FaCheck className={validGender ? "valid" : "hide"} />
                       <FaTimes
-                        className={validGender || gender ? "hide" : "invalid"}
+                        className={validGender || !gender ? "hide" : "invalid"}
                       />
                     </label>
                     <select
@@ -266,20 +271,18 @@ const Register = () => {
                       placeholder="Enter your fullname"
                       aria-invalid={validGender ? "false" : "true"}
                       aria-describedby="uidnote"
-                      // onSelect={() => setValidGender(false)}
+                      onClick={(e) => setGender(e.target.value)}
                       onFocus={() => {
                         setGenderFocus(true);
-                        setValidGender(false);
                       }}
                       onBlur={() => setGenderFocus(false)}
                     >
-                      <option value=""> - Gender - </option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Others">Others</option>
                     </select>
 
-                    <p
+                    {/* <p
                       id="uidnote"
                       className={
                         genderFocus && gender && !validGender
@@ -289,7 +292,7 @@ const Register = () => {
                     >
                       <FaInfoCircle />
                       Select Gender
-                    </p>
+                    </p> */}
                   </div>
 
                   <div className="col-6">
