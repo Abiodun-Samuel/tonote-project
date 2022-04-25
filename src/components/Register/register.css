@@ -19,12 +19,26 @@
    color: #a5a5a5;
 }
 
+.input-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    z-index: 10000;
+    margin-left: 10px;
+    color: #929292;
+}
+
+
 input[type="text"],
+input[type="email"],
 select,
 input[type="tel"],
 input[type="date"]
  {
-  padding: 0.4rem 0.5rem;
   outline: none;
   border: 0.5px solid #d0d0d0;
    outline: 0.5px solid #d0d0d0;
@@ -33,6 +47,18 @@ input[type="date"]
    font-size: 0.8rem;
    color: #777777;
    position: relative;
+}
+
+select,
+input[type="tel"],
+input[type="date"]{
+  padding: 0.45rem 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"]{
+  padding: 0.45rem 0.5rem 0.45rem 2rem;
 }
 
 input[type="date"]:focus,
@@ -96,6 +122,7 @@ color: var(--white);
     position: absolute;
     top: 70px;
     z-index: 10000000;
+    box-shadow: var(--shadow);
 }
 
 .instructions > svg {

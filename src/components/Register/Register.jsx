@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./register.css";
 import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
 import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
-import { FaSignInAlt } from "react-icons/fa";
+import { FaSignInAlt, FaUserCircle } from "react-icons/fa";
 
 const Register = () => {
   const userNameRef = useRef();
@@ -134,21 +134,25 @@ const Register = () => {
                         className={validName || !userName ? "hide" : "invalid"}
                       />
                     </label>
-                    <input
-                      className={validName ? "validinput" : ""}
-                      type="text"
-                      id="username"
-                      ref={userNameRef}
-                      autoComplete="off"
-                      onChange={(e) => setUserName(e.target.value)}
-                      value={userName}
-                      required
-                      placeholder="Enter your fullname"
-                      aria-invalid={validName ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      onFocus={() => setUserFocus(true)}
-                      onBlur={() => setUserFocus(false)}
-                    />
+                    <div className="input-box">
+                      <FaUserCircle className="input-icon" />
+                      <input
+                        className={validName ? "validinput" : ""}
+                        type="text"
+                        id="username"
+                        ref={userNameRef}
+                        autoComplete="off"
+                        onChange={(e) => setUserName(e.target.value)}
+                        value={userName}
+                        required
+                        placeholder="Enter your fullname"
+                        aria-invalid={validName ? "false" : "true"}
+                        aria-describedby="uidnote"
+                        onFocus={() => setUserFocus(true)}
+                        onBlur={() => setUserFocus(false)}
+                      />
+                    </div>
+
                     <p
                       id="uidnote"
                       className={
@@ -181,7 +185,7 @@ const Register = () => {
                     </label>
                     <input
                       className={validEmail ? "validinput" : ""}
-                      type="text"
+                      type="email"
                       id="useremail"
                       autoComplete="off"
                       onChange={(e) => setUserEmail(e.target.value)}
@@ -297,7 +301,7 @@ const Register = () => {
 
                   <div className="col-6">
                     <label htmlFor="date">
-                      Date Of Birth:
+                      Date of Birth:
                       <FaCheck className={validDate ? "valid" : "hide"} />
                       <FaTimes
                         className={validDate || !date ? "hide" : "invalid"}
@@ -336,7 +340,7 @@ const Register = () => {
                 <hr />
 
                 <button
-                  className="button"
+                  className="button mt-4"
                   disabled={
                     !validName ||
                     !validGender ||
