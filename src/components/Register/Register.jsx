@@ -114,13 +114,13 @@ const Register = () => {
     <div className="register">
       <div className="container">
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-8 col-md-10">
+          <div className="col-lg-7 col-md-10">
             <div className="register-box bg-white p-4 shadow-lg rounded">
               <h1>Register</h1>
               <hr />
               <form onSubmit={handleSubmit}>
                 {/* fullname  */}
-                <div className="form-row my-3">
+                <div className="form-row my-4">
                   <div className="col-12">
                     <label htmlFor="username">
                       FullName:
@@ -162,7 +162,7 @@ const Register = () => {
                   </div>
                 </div>
 
-                <div className="form-row my-3">
+                <div className="form-row my-4">
                   {/* email  */}
                   <div className="col-6">
                     <label htmlFor="useremail">
@@ -243,7 +243,7 @@ const Register = () => {
                   </div>
                 </div>
 
-                <div className="form-row my-3">
+                <div className="form-row my-4">
                   {/* select gender  */}
                   <div className="col-6">
                     <label htmlFor="gender">
@@ -254,7 +254,7 @@ const Register = () => {
                       />
                     </label>
                     <select
-                      className={validPhone ? "validinput" : ""}
+                      className={validGender ? "validinput" : ""}
                       name="gender"
                       id="gender"
                       autoComplete="off"
@@ -283,7 +283,7 @@ const Register = () => {
                       id="uidnote"
                       className={
                         genderFocus && gender && !validGender
-                          ? "instructions"
+                          ? "instructions small"
                           : "offscreen"
                       }
                     >
