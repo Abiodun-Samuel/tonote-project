@@ -3,7 +3,6 @@
    --blue-0: #d6e4ff;
    --black: #242424;
    --shadow-1: 0px 2px 15px rgba(0, 0, 0, 0.1);
-   --shadow-2: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .app{
    min-height: 90vh;

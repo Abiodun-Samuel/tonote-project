@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import "./register.css";
-import { FaCheck, FaTimes, FaInfoCircle } from "react-icons/fa";
+import {
+  FaCheck,
+  FaTimes,
+  FaInfoCircle,
+  FaSignInAlt,
+  FaUserCircle,
+  FaPhoneSquareAlt,
+} from "react-icons/fa";
 import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
-import { FaSignInAlt, FaUserCircle } from "react-icons/fa";
+import { RiMailFill } from "react-icons/ri";
 
 const Register = () => {
   const userNameRef = useRef();
@@ -183,21 +190,26 @@ const Register = () => {
                         }
                       />
                     </label>
-                    <input
-                      className={validEmail ? "validinput" : ""}
-                      type="email"
-                      id="useremail"
-                      autoComplete="off"
-                      onChange={(e) => setUserEmail(e.target.value)}
-                      value={userEmail}
-                      required
-                      pattern={EMAIL_REGEX}
-                      placeholder="Enter your email"
-                      aria-invalid={validEmail ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      onFocus={() => setEmailFocus(true)}
-                      onBlur={() => setEmailFocus(false)}
-                    />
+
+                    <div className="input-box">
+                      <RiMailFill className="input-icon" />
+                      <input
+                        className={validEmail ? "validinput" : ""}
+                        type="email"
+                        id="useremail"
+                        autoComplete="off"
+                        onChange={(e) => setUserEmail(e.target.value)}
+                        value={userEmail}
+                        required
+                        pattern={EMAIL_REGEX}
+                        placeholder="Enter your email"
+                        aria-invalid={validEmail ? "false" : "true"}
+                        aria-describedby="uidnote"
+                        onFocus={() => setEmailFocus(true)}
+                        onBlur={() => setEmailFocus(false)}
+                      />
+                    </div>
+
                     <p
                       id="uidnote"
                       className={
@@ -222,21 +234,25 @@ const Register = () => {
                         }
                       />
                     </label>
-                    <input
-                      className={validPhone ? "validinput" : ""}
-                      type="tel"
-                      id="userphone"
-                      pattern={PHONE_REGEX}
-                      autoComplete="off"
-                      onChange={(e) => setUserPhone(e.target.value)}
-                      value={userPhone}
-                      required
-                      placeholder="Enter your phone number"
-                      aria-invalid={validPhone ? "false" : "true"}
-                      aria-describedby="uidnote"
-                      onFocus={() => setPhoneFocus(true)}
-                      onBlur={() => setPhoneFocus(false)}
-                    />
+                    <div className="input-box">
+                      <FaPhoneSquareAlt className="input-icon" />
+                      <input
+                        className={validPhone ? "validinput" : ""}
+                        type="tel"
+                        id="userphone"
+                        pattern={PHONE_REGEX}
+                        autoComplete="off"
+                        onChange={(e) => setUserPhone(e.target.value)}
+                        value={userPhone}
+                        required
+                        placeholder="Enter your phone number"
+                        aria-invalid={validPhone ? "false" : "true"}
+                        aria-describedby="uidnote"
+                        onFocus={() => setPhoneFocus(true)}
+                        onBlur={() => setPhoneFocus(false)}
+                      />
+                    </div>
+
                     <p
                       id="uidnote"
                       className={
@@ -316,13 +332,14 @@ const Register = () => {
                       onChange={(e) => setDate(e.target.value)}
                       value={date}
                       required
-                      placeholder="Enter your date of birth"
+                      placeholder="MM/DD/YYYY"
                       aria-invalid={validDate ? "false" : "true"}
                       aria-describedby="uidnote"
-                      onFocus={() => setDateFocus(true)}
+                      onFocus={() => {
+                        setDateFocus(true);
+                      }}
                       onBlur={() => setDateFocus(false)}
                     />
-
                     <p
                       id="uidnote"
                       className={
