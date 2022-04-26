@@ -17,7 +17,10 @@ const Home = () => {
                   harum pariatur corporis fugit consequatur magni aut id illo
                   voluptatum vel? Fugit.
                 </p>
-                <Link to="/register" className="btn btn-primary my-2">
+                <Link
+                  to="/register"
+                  className="btn btn-primary btn_one shadow-lg my-2"
+                >
                   <span className="d-flex align-items-center">
                     <FaSignInAlt className="mx-2" /> Register Now
                   </span>

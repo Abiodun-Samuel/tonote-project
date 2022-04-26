@@ -120,7 +120,7 @@ const Register = () => {
     <div className="register">
       <div className="container">
         <div className="row d-flex justify-content-center">
-          <div className="col-lg-7 col-md-10">
+          <div className="col-lg-7 col-md-12">
             <div className="register-box p-4 shadow-lg rounded">
               {!success ? (
                 <>
@@ -394,7 +394,7 @@ const Register = () => {
                       <div className="my-2">
                         <a
                           href={imageURL}
-                          className="d-flex justify-content-center align-items-center btn_one my-3"
+                          className="d-flex justify-content-center align-items-center shadow-lg btn_one my-3"
                           download
                         >
                           <FaDownload className="mx-2" /> Download
