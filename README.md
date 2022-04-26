@@ -1,3 +1,7 @@
+An Event Reservation Website with QRCode.
+
+This project was bootstrapped with [Create React App] and Bootstrap v4.6
+
 <!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -56,6 +60,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+
 
 ### Advanced Configuration
 
