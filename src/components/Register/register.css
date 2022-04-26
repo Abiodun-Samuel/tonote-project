@@ -6,12 +6,19 @@
    display: flex;
    padding-top: 5rem;
    justify-content: center;
+   position: relative;
 }
 
 .register h1 {
    color: var(--blue);
-   font-size: 1.25rem;
+   font-size: 1.3rem;
    font-weight: 700;
+}
+.register .register-image{
+    max-width: 30%;
+    position: absolute;
+    top: 0;
+    right: 20px;
 }
 
 .register input::placeholder {
@@ -72,7 +79,7 @@ select:focus{
 }
 
 input[type="date"] {
-    padding: 0.4rem 0.5rem;
+    padding: 0.36rem 0.5rem;
 }
 
 label {
@@ -90,10 +97,12 @@ label {
   outline: 1px solid var(--blue);
   border: 1px solid var(--blue);
   color: var(--white);
+  box-shadow: var(--shadow-1);
   transition: 500ms;
 }
 
 .register .button:hover {
+  box-shadow: var(--shadow-1);
 background: var(--primary);
 outline: 1px solid var(--primary);
 border: 1px solid var(--primary);
@@ -106,25 +115,24 @@ color: var(--white);
    outline: 1px solid #cccccc;
    background-color: #cccccc;
    color: #322f2f;
+  box-shadow: var(--shadow-1);
 }
 
 .register .button:disabled:hover,
 .register .button[disabled]:hover {
    border: 1px solid #cccccc;
+  box-shadow: var(--shadow-1);
    outline: 1px solid #cccccc;
    background-color: #cccccc;
    color: #322f2f;
-
 }
 
 .instructions {
     font-size: 0.7rem;
     border-radius: 0.5rem;
-    background: #494949;
-    color: var(--red);
     padding: 0.5rem;
-    position: absolute;
-    top: 70px;
+    position: absolute !important;
+    top: 65px;
     z-index: 10000000;
     box-shadow: var(--shadow-1);
 }
