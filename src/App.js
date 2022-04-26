@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./app.css";
+// import "./app.css";
 
 const Register = lazy(() => import("./components/Register/Register"));
 const NotFound = lazy(() => import("./components/NotFound/NotFound"));
@@ -14,7 +14,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        <main className="app">
+        <main className="home_app">
           <Suspense fallback={<div></div>}>
             <Routes>
               <Route path="/" element={<Home />} />
