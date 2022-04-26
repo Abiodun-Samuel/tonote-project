@@ -7,6 +7,7 @@ import {
   FaSignInAlt,
   FaUserCircle,
   FaPhoneSquareAlt,
+  FaDownload,
 } from "react-icons/fa";
 import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
 import { RiMailFill } from "react-icons/ri";
@@ -17,7 +18,6 @@ import { toastMessage } from "../../utils/helper";
 
 const Register = () => {
   const userNameRef = useRef();
-  const errRef = useRef();
 
   const [userName, setUserName] = useState("");
   const [validName, setValidName] = useState(false);
@@ -95,6 +95,7 @@ const Register = () => {
       toastMessage("error", "Invalid Input");
       return;
     }
+
     try {
       const response = await QRCode.toDataURL(userName);
       setImageURL(response);
@@ -111,8 +112,7 @@ const Register = () => {
       setUserPhone("");
       setDate("");
     } catch (err) {
-      console.log(err);
-      // errRef.current.focus();
+      toastMessage("error", err);
     }
   };
 
@@ -360,7 +360,7 @@ const Register = () => {
                     <hr />
 
                     <button
-                      className="button mt-4"
+                      className="button  mt-4"
                       disabled={
                         !validName ||
                         !validGender ||
@@ -378,21 +378,31 @@ const Register = () => {
                   </form>
                 </>
               ) : (
-                <>
+                <div className="text-center">
                   <h1>Registered</h1>
+                  <hr />
                   {imageURL && (
                     <>
-                      <img src={imageURL} alt="qrcode" className="img-fluid " />
-                      <a
-                        href={imageURL}
-                        className="btn btn-primary my-3"
-                        download
-                      >
-                        Download
-                      </a>
+                      <div className="my-2">
+                        <img
+                          src={imageURL}
+                          alt="qrcode"
+                          className="img-fluid"
+                        />
+                      </div>
+                      <hr />
+                      <div className="my-2">
+                        <a
+                          href={imageURL}
+                          className="d-flex justify-content-center align-items-center btn_one my-3"
+                          download
+                        >
+                          <FaDownload className="mx-2" /> Download
+                        </a>
+                      </div>
                     </>
                   )}
-                </>
+                </div>
               )}
             </div>
           </div>

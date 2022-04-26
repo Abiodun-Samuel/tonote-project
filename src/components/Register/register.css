@@ -94,18 +94,27 @@ label {
   width: 100%;
   background: var(--blue);
   border-radius: 5px;
-  outline: 1px solid var(--blue);
-  border: 1px solid var(--blue);
+  outline: 1.5px solid var(--blue);
+  border: 1.5px solid var(--blue);
   color: var(--white);
   box-shadow: var(--shadow-1);
   transition: 500ms;
+outline-offset: 3px;
+font-size: 0.9rem;
+font-weight: bold;
+letter-spacing: 0.5px;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 500ms;
+cursor: pointer;
 }
 
 .register .button:hover {
   box-shadow: var(--shadow-1);
 background: var(--primary);
-outline: 1px solid var(--primary);
-border: 1px solid var(--primary);
+outline: 1.5px solid var(--primary);
+border: 1.5px solid var(--primary);
 color: var(--white);
 }
 
