@@ -12,7 +12,7 @@ import {
 import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
 import { RiMailFill } from "react-icons/ri";
 import QRCode from "qrcode";
-import { toastMessage } from "../../utils/helper";
+import { randomString, toastMessage } from "../../utils/helper";
 
 const Register = () => {
   const userNameRef = useRef();
@@ -39,6 +39,13 @@ const Register = () => {
 
   const [success, setSuccess] = useState(false);
   const [imageURL, setImageURL] = useState("");
+  const [ticketDetails, setTicketDetails] = useState({
+    userName: "",
+    userEmail: "",
+    userPhone: "",
+    gender: "",
+    date: "",
+  });
 
   useEffect(() => {
     userNameRef.current.focus();
@@ -102,7 +109,13 @@ const Register = () => {
         "success",
         "Congratulations, Your registration was successful. Download your QRCode"
       );
-
+      setTicketDetails({
+        userName,
+        userEmail,
+        userPhone,
+        gender,
+        date,
+      });
       //clear state and controlled inputs
       setUserName("");
       setGender("");
@@ -389,9 +402,24 @@ const Register = () => {
                     </form>
                   </>
                 ) : (
-                  <div className="text-center">
-                    <h1>Registered</h1>
+                  <div>
+                    <h1>Ticket Id: {randomString(10)}</h1>
                     <hr />
+                    <p className="my-0 py-0">
+                      <strong>Fullname:</strong> {ticketDetails.userName}
+                    </p>
+                    <p className="my-0 py-0">
+                      <strong>Email:</strong> {ticketDetails.userEmail}
+                    </p>
+                    <p className="my-0 py-0">
+                      <strong>Phone:</strong> {ticketDetails.userPhone}
+                    </p>
+                    <p className="my-0 py-0">
+                      <strong>Gender:</strong> {ticketDetails.gender}
+                    </p>
+                    <p className="my-0 py-0">
+                      <strong>Date of Birth:</strong> {ticketDetails.date}
+                    </p>
                     {imageURL && (
                       <>
                         <div className="my-2">
