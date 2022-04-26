@@ -4,8 +4,9 @@
    background-position: center;
    min-height: 100vh;
    display: flex;
-   padding-top: 5rem;
+   /* padding-top: 5rem; */
    justify-content: center;
+   align-items: center;
    position: relative;
 }
 
@@ -14,11 +15,10 @@
    font-size: 1.3rem;
    font-weight: 700;
 }
-.register .register-image{
-    max-width: 30%;
-    position: absolute;
-    top: 0;
-    right: 20px;
+.register .register-box{
+    background: url('../../images/register-bg.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .register input::placeholder {

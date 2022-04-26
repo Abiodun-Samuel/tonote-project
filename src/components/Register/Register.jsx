@@ -121,7 +121,7 @@ const Register = () => {
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-7 col-md-10">
-            <div className="register-box bg-white p-4 shadow-lg rounded">
+            <div className="register-box p-4 shadow-lg rounded">
               {!success ? (
                 <>
                   <h1>Register</h1>
@@ -360,7 +360,7 @@ const Register = () => {
                     <hr />
 
                     <button
-                      className="button  mt-4"
+                      className="button mt-4 shadow-lg"
                       disabled={
                         !validName ||
                         !validGender ||
