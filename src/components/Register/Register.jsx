@@ -13,6 +13,7 @@ import { RiMailFill } from "react-icons/ri";
 import img from "../../images/register-bg.svg";
 import QRCode from "qrcode";
 import { Link } from "react-router-dom";
+import { toastMessage } from "../../utils/helper";
 
 const Register = () => {
   const userNameRef = useRef();
@@ -59,7 +60,7 @@ const Register = () => {
   }, [userPhone]);
 
   useEffect(() => {
-    if (gender !== "") {
+    if (gender) {
       setValidGender(true);
     } else {
       setValidGender(false);
@@ -83,21 +84,23 @@ const Register = () => {
     }
   }, [date]);
 
-  useEffect(() => {
-    setErrMsg(false);
-  }, [userName, userEmail, userPhone, gender, date]);
+  // useEffect(() => {
+  //   setErrMsg(false);
+  // }, [userName, userEmail, userPhone, gender, date]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if button enabled with JS hack
-    // const v1 = USER_REGEX.test(userName);
-    setErrMsg(true);
-    errRef.current.focus();
 
-    // if (!v1) {
-    //   setErrMsg("Invalid Entry");
-    //   return;
-    // }
+    // prevent javascript submission button hack
+    const p1 = USER_REGEX.test(userName);
+    const p2 = EMAIL_REGEX.test(userEmail);
+    const p3 = PHONE_REGEX.test(userPhone);
+
+    if (!p1 || !p2 || !p3 || !validDate || !validGender) {
+      toastMessage("error", "Invalid Input");
+      return;
+    }
+    toastMessage("success", "Invalid Input");
     // try {
     //   const response = await QRCode.toDataURL(userName);
     //   console.log(response);
@@ -121,16 +124,6 @@ const Register = () => {
                 <>
                   <h1>Register</h1>
                   <hr />
-
-                  {!errMsg && (
-                    <div
-                      className="instructions alert alert-danger w-75"
-                      ref={errRef}
-                    >
-                      <FaInfoCircle />
-                      Invalid Input
-                    </div>
-                  )}
 
                   <form onSubmit={handleSubmit}>
                     {/* fullname  */}
