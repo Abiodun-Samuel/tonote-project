@@ -117,7 +117,6 @@ const Register = () => {
   return (
     <>
       <div className="register-top"></div>
-
       <div className="register">
         <div className="container">
           <div className="row d-flex justify-content-center">
@@ -273,9 +272,9 @@ const Register = () => {
                         </div>
                       </div>
 
-                      <div className="form-row my-4">
+                      <div className="form-row">
                         {/* select gender  */}
-                        <div className="col-6">
+                        <div className="col-lg-6 col-md-6 col-sm-6 my-3">
                           <label htmlFor="gender">
                             Gender:
                             <FaCheck
@@ -326,7 +325,7 @@ const Register = () => {
                           </p>
                         </div>
 
-                        <div className="col-6">
+                        <div className="col-lg-6 col-md-6 col-sm-6 my-3">
                           <label htmlFor="date">
                             Date of Birth:
                             <FaCheck className={validDate ? "valid" : "hide"} />
