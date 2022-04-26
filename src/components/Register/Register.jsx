@@ -17,7 +17,7 @@ import { randomString, toastMessage } from "../../utils/helper";
 const Register = () => {
   const userNameRef = useRef();
 
-  // states for input fields
+  // states for each input fields
   const [userName, setUserName] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
@@ -38,6 +38,7 @@ const Register = () => {
   const [validDate, setValidDate] = useState(false);
   const [dateFocus, setDateFocus] = useState(false);
 
+  // other states
   const [success, setSuccess] = useState(false);
   const [imageURL, setImageURL] = useState("");
   const [ticketDetails, setTicketDetails] = useState({
@@ -48,7 +49,7 @@ const Register = () => {
     date: "",
   });
 
-  // effects of input fields
+  // effects for each input fields
   useEffect(() => {
     userNameRef.current.focus();
   }, []);
@@ -412,8 +413,7 @@ const Register = () => {
                     </form>
                   </>
                 ) : (
-                    
-                  //display screen after submission 
+                  //display screen after submission
                   <div>
                     <h1>Ticket Id: {randomString(10)}</h1>
                     <hr />
