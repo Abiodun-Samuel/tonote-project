@@ -290,15 +290,17 @@ const Register = () => {
                           }}
                           value={gender}
                           required
-                          placeholder="Enter your fullname"
+                          placeholder="Select your gender"
                           aria-invalid={validGender ? "false" : "true"}
                           aria-describedby="uidnote"
-                          onClick={(e) => setGender(e.target.value)}
                           onFocus={() => {
                             setGenderFocus(true);
                           }}
                           onBlur={() => setGenderFocus(false)}
                         >
+                          <option value="" selected disabled>
+                            -- Gender --
+                          </option>
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
                           <option value="Others">Others</option>
@@ -342,6 +344,7 @@ const Register = () => {
                           }}
                           onBlur={() => setDateFocus(false)}
                         />
+
                         <p
                           id="uidnote"
                           className={

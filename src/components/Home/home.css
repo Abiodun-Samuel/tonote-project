@@ -1,18 +1,75 @@
 #home{
-   background: #fff;
-  padding-top: 5rem;
+   background: #ffffff;
+  padding-top: 3rem;
 }
-
+.hero{
+   margin-top: 5rem;
+}
 .hero h1{
    color: var(--blue);
-   font-size: 3.3rem;
+   font-size: 3rem;
    font-weight: bold;
    letter-spacing: 0.5px;
-   margin: 1.5rem 0;
+   margin: 2rem 0;
 }
 .hero p{
-color: var(--black);
-opacity: 0.7;
-font-size: 1.2rem;
-   margin: 1.1rem 0;
+   color: var(--black);
+   opacity: 0.7;
+   font-size: 1.2rem;
+   margin: 2rem 0;
+}
+
+.btn_one {
+   background-color: var(--blue);
+   border-radius: 2px;
+   border: 1.5px solid var(--blue);
+   outline: 1.5px solid var(--blue);
+   outline-offset: 3px;
+   color: var(--white);
+   padding: 0.45rem 0.5rem;
+   font-size: 0.9rem;
+   font-weight: bold;
+   letter-spacing: 0.5px;
+   box-shadow: var(--blue-0), var(--shadow-1);
+   transition: 500ms;
+   cursor: pointer;
+}
+
+.btn_one:hover,
+.btn_one:focus {
+   color: var(--white);
+   background-color: var(--primary);
+   border: 1.5px solid var(--primary);
+   outline: 1.5px solid var(--primary);
+   text-decoration: none;
+}
+
+.hero-img{
+   position: relative;
+}
+.hero_main{
+   max-width: 90%;
+   position: relative;
+}
+.hero_one{
+   width:150px;
+   height: 100px;
+   padding: 5px;
+   object-fit: contain;
+   border-radius: 5px;
+   position: absolute;
+   top: 5px;
+   left: 0;
+   z-index: 10;
+}
+.hero_two{
+   width:150px;
+   height: 100px;
+   padding: 5px;
+   object-fit: contain;
+   border-radius: 5px;
+   position: absolute;
+   bottom: 5px;
+   right: 0;
+   z-index: 10;
 }
