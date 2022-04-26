@@ -20,7 +20,7 @@
 }
 
 .btn_one {
-   background-color: var(--blue);
+   background-image: linear-gradient(135deg, var(--primary), var(--blue));
    border-radius: 2px;
    border: 1.5px solid var(--blue);
    outline: 1.5px solid var(--blue);
@@ -37,6 +37,7 @@
 
 .btn_one:hover,
 .btn_one:focus {
+   transform: scale(0.95);
    color: var(--white);
    background-color: var(--primary);
    border: 1.5px solid var(--primary);
@@ -49,8 +50,12 @@
 }
 
 .hero_main{
-   max-width: 100%;
+   max-width: 85%;
    position: relative;
+   border-radius: 50%;
+   padding: 9px;
+   background-color: var(--blue-0);
+   box-shadow: var(--shadow-1);
 }
 .hero_one{
    width:150px;

@@ -1,18 +1,13 @@
 /* header  */
 .navbar-brand {
-   text-transform: capitalize;
-   font-family: "Pacifico", cursive;
-   letter-spacing: 0.5px;
-   font-size: 1.2rem;
-   transition: 500ms;
    margin: 0;
    padding: 0;
-   color: var(--blue);
-   font-weight: bolder;
+  height: 30px;
+  width: auto;
 }
 
 .navbar-brand:hover {
-   color: var(--black);
+   box-shadow: var(--shadow);
 }
 
 .nav-item .nav-link,

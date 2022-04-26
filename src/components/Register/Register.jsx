@@ -102,7 +102,7 @@ const Register = () => {
     }
 
     try {
-      const response = await QRCode.toDataURL(userName);
+      const response = await QRCode.toDataURL(`Name: ` + userName);
       setImageURL(response);
       setSuccess(true);
       toastMessage(

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import logo from "../../../images/main.svg";
+import logo from "../../images/logo.png";
 import "./header.css";
 import { CgMenuGridR } from "react-icons/cg";
 import { FaSignInAlt, FaHome } from "react-icons/fa";
@@ -9,8 +9,8 @@ const Header = () => {
     <header>
       <nav className="navbar navbar-expand-lg bg-white shadow fixed-top">
         <div className="container">
-          <Link className="navbar-brand m-0 p-0" to="/">
-            ToNote
+          <Link className="m-0 p-0" to="/">
+            <img src={logo} alt="logo" className="navbar-brand" />
           </Link>
 
           <button

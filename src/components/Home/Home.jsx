@@ -15,7 +15,7 @@ const Home = () => {
         <div className="container">
           {/* hero section  */}
           <div className="row">
-            <div className="col-lg-6 my-3">
+            <div className="col-lg-6 my-4">
               <div className="hero">
                 <h1>ToNote Technologies</h1>
                 <p>
@@ -34,9 +34,9 @@ const Home = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-lg-6 my-3">
-              <div className="hero-img">
-                <img src={hero} alt="hero" className="hero_main" />
+            <div className="col-lg-6 my-4">
+              <div className="hero-img d-flex justify-content-center">
+                <img src={hero} alt="hero" className="hero_main shadow" />
               </div>
             </div>
           </div>
@@ -45,9 +45,7 @@ const Home = () => {
 
       <div className="container">
         <div className="text-center my-5">
-          <h3 className="font-weight-bold h1 text-danger">
-            Lorem, ipsum dolor.
-          </h3>
+          <h3 className="font-weight-bold h1 text-danger">Upcoming Events</h3>
           <p className="h6 my-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
             pariatur, consectetur doloribus veritatis quam eius iste quis alias
@@ -59,7 +57,7 @@ const Home = () => {
         <div className="row my-5 py-5">
           {images.map((img, index) => (
             <div className="col-lg-4 col-md-6 col-sm-6 my-3" key={img + index}>
-              <div class="card shadow-lg border-0">
+              <div class="card shadow-lg border-0 rounded">
                 <img
                   src={img}
                   class="card-img-top p-1"
