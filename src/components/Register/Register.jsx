@@ -39,7 +39,6 @@ const Register = () => {
   const [validDate, setValidDate] = useState(false);
   const [dateFocus, setDateFocus] = useState(false);
 
-  const [errMsg, setErrMsg] = useState(false);
   const [success, setSuccess] = useState(false);
   const [imageURL, setImageURL] = useState("");
 
@@ -84,10 +83,6 @@ const Register = () => {
     }
   }, [date]);
 
-  // useEffect(() => {
-  //   setErrMsg(false);
-  // }, [userName, userEmail, userPhone, gender, date]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -100,18 +95,25 @@ const Register = () => {
       toastMessage("error", "Invalid Input");
       return;
     }
-    toastMessage("success", "Invalid Input");
-    // try {
-    //   const response = await QRCode.toDataURL(userName);
-    //   console.log(response);
-    //   setImageURL(response);
-    //   setSuccess(true);
-    //   //clear state and controlled inputs
-    //   setUserName("");
-    // } catch (err) {
-    //   console.log(err);
-    //   // errRef.current.focus();
-    // }
+    try {
+      const response = await QRCode.toDataURL(userName);
+      setImageURL(response);
+      setSuccess(true);
+      toastMessage(
+        "success",
+        "Congratulations, Your registration was successful. Download your QRCode"
+      );
+
+      //clear state and controlled inputs
+      setUserName("");
+      setGender("");
+      setUserEmail("");
+      setUserPhone("");
+      setDate("");
+    } catch (err) {
+      console.log(err);
+      // errRef.current.focus();
+    }
   };
 
   return (
