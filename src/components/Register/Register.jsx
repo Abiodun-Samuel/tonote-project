@@ -17,6 +17,7 @@ import { randomString, toastMessage } from "../../utils/helper";
 const Register = () => {
   const userNameRef = useRef();
 
+  // states for input fields
   const [userName, setUserName] = useState("");
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
@@ -47,6 +48,7 @@ const Register = () => {
     date: "",
   });
 
+  // effects of input fields
   useEffect(() => {
     userNameRef.current.focus();
   }, []);
@@ -88,6 +90,7 @@ const Register = () => {
     }
   }, [date]);
 
+  // submit form handler
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -109,6 +112,7 @@ const Register = () => {
         "success",
         "Congratulations, Your registration was successful. Download your QRCode"
       );
+      //set ticket details
       setTicketDetails({
         userName,
         userEmail,
@@ -141,7 +145,7 @@ const Register = () => {
                     <hr />
 
                     <form onSubmit={handleSubmit}>
-                      {/* fullname  */}
+                      {/* fullname field */}
                       <div className="form-row my-4">
                         <div className="col-12">
                           <label htmlFor="username">
@@ -164,6 +168,7 @@ const Register = () => {
                               onChange={(e) => setUserName(e.target.value)}
                               value={userName}
                               required
+                              pattern="^[a-zA-Z ]{3,50}$"
                               placeholder="Enter your fullname"
                               aria-invalid={validName ? "false" : "true"}
                               aria-describedby="uidnote"
@@ -172,6 +177,7 @@ const Register = () => {
                             />
                           </div>
 
+                          {/*display instructions */}
                           <p
                             id="uidnote"
                             className={
@@ -191,7 +197,7 @@ const Register = () => {
                       </div>
 
                       <div className="form-row my-4">
-                        {/* email  */}
+                        {/* email field */}
                         <div className="col-6">
                           <label htmlFor="useremail">
                             Email:
@@ -215,7 +221,7 @@ const Register = () => {
                               onChange={(e) => setUserEmail(e.target.value)}
                               value={userEmail}
                               required
-                              // pattern={EMAIL_REGEX}
+                              pattern="^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$"
                               placeholder="Enter your email"
                               aria-invalid={validEmail ? "false" : "true"}
                               aria-describedby="uidnote"
@@ -223,7 +229,7 @@ const Register = () => {
                               onBlur={() => setEmailFocus(false)}
                             />
                           </div>
-
+                          {/* display intruction  */}
                           <p
                             id="uidnote"
                             className={
@@ -237,7 +243,7 @@ const Register = () => {
                           </p>
                         </div>
 
-                        {/* phone number  */}
+                        {/* phone number field */}
                         <div className="col-6">
                           <label htmlFor="userphone">
                             Phone:
@@ -256,7 +262,7 @@ const Register = () => {
                               className={validPhone ? "validinput" : ""}
                               type="tel"
                               id="userphone"
-                              // pattern={PHONE_REGEX}
+                              pattern="^\(?([0])\)?([7|8|9])\)?([0-9]{2})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
                               autoComplete="off"
                               onChange={(e) => setUserPhone(e.target.value)}
                               value={userPhone}
@@ -269,6 +275,7 @@ const Register = () => {
                             />
                           </div>
 
+                          {/* display instruction  */}
                           <p
                             id="uidnote"
                             className={
@@ -286,7 +293,7 @@ const Register = () => {
                       </div>
 
                       <div className="form-row">
-                        {/* select gender  */}
+                        {/* gender  field */}
                         <div className="col-lg-6 col-md-6 col-sm-6 my-3">
                           <label htmlFor="gender">
                             Gender:
@@ -325,6 +332,7 @@ const Register = () => {
                             <option value="Others">Others</option>
                           </select>
 
+                          {/* display instruction  */}
                           <p
                             id="uidnote"
                             className={
@@ -338,6 +346,7 @@ const Register = () => {
                           </p>
                         </div>
 
+                        {/* date of birth field  */}
                         <div className="col-lg-6 col-md-6 col-sm-6 my-3">
                           <label htmlFor="date">
                             Date of Birth:
@@ -348,7 +357,6 @@ const Register = () => {
                               }
                             />
                           </label>
-
                           <input
                             className={validDate ? "validinput" : ""}
                             type="date"
@@ -366,6 +374,7 @@ const Register = () => {
                             onBlur={() => setDateFocus(false)}
                           />
 
+                          {/* display instruction  */}
                           <p
                             id="uidnote"
                             className={
@@ -383,6 +392,7 @@ const Register = () => {
 
                       <hr />
 
+                      {/* submit button  */}
                       <button
                         className="button mt-4 shadow-lg"
                         disabled={
@@ -402,6 +412,8 @@ const Register = () => {
                     </form>
                   </>
                 ) : (
+                    
+                  //display screen after submission 
                   <div>
                     <h1>Ticket Id: {randomString(10)}</h1>
                     <hr />

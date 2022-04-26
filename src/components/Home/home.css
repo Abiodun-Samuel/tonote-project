@@ -57,25 +57,13 @@
    background-color: var(--blue-0);
    box-shadow: var(--shadow-1);
 }
-.hero_one{
-   width:150px;
-   height: 100px;
-   padding: 5px;
+.hero_four{
+   width:22%;
+   height: 17%;
    object-fit: contain;
    border-radius: 5px;
    position: absolute;
    top: 5px;
    left: 0;
-   z-index: 10;
-}
-.hero_two{
-   width:150px;
-   height: 100px;
-   padding: 5px;
-   object-fit: contain;
-   border-radius: 5px;
-   position: absolute;
-   bottom: 5px;
-   right: 0;
    z-index: 10;
 }

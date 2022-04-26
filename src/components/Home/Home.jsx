@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaSignInAlt } from "react-icons/fa";
 import hero from "../../images/hero.webp";
+import hero4 from "../../images/hero4.webp";
 import hero1 from "../../images/hero1.svg";
 import hero2 from "../../images/hero2.svg";
 import hero3 from "../../images/hero3.svg";
@@ -36,6 +37,7 @@ const Home = () => {
             </div>
             <div className="col-lg-6 my-4">
               <div className="hero-img d-flex justify-content-center">
+                <img src={hero4} alt="hero" className="hero_four shadow" />
                 <img src={hero} alt="hero" className="hero_main shadow" />
               </div>
             </div>
