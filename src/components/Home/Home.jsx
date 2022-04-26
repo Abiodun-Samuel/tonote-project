@@ -40,29 +40,55 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* card display section  */}
-          <div className="row my-5">
-            {images.map((img, index) => (
-              <div
-                className="col-lg-4 col-md-6 col-sm-6 my-3"
-                key={img + index}
-              >
-                <div class="card shadow-lg border-0">
-                  <img
-                    src={img}
-                    class="card-img-top p-1"
-                    alt="images"
-                    height="200"
-                    width="auto"
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">Lorem, ipsum dolor.</h5>
-                  </div>
+      <div className="container">
+        <div className="text-center my-5">
+          <h3 className="font-weight-bold h1 text-danger">
+            Lorem, ipsum dolor.
+          </h3>
+          <p className="h6 my-2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+            pariatur, consectetur doloribus veritatis quam eius iste quis alias
+            magnam aut.
+          </p>
+        </div>
+
+        {/* card display section  */}
+        <div className="row my-5 py-5">
+          {images.map((img, index) => (
+            <div className="col-lg-4 col-md-6 col-sm-6 my-3" key={img + index}>
+              <div class="card shadow-lg border-0">
+                <img
+                  src={img}
+                  class="card-img-top p-1"
+                  alt="images"
+                  height="200"
+                  width="auto"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">Lorem, ipsum dolor.</h5>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center my-5 py-2">
+          <p className="h6 my-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
+            pariatur, consectetur doloribus veritatis quam eius iste quis alias
+            magnam aut.
+          </p>
+          <Link
+            to="/register"
+            className="btn btn-primary btn_one shadow-lg my-2"
+          >
+            <span className="d-flex align-items-center">
+              <FaSignInAlt className="mx-2" /> Register Now
+            </span>
+          </Link>
         </div>
       </div>
     </>

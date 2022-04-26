@@ -1,6 +1,7 @@
 #home{
    background: #ffffff;
-  padding-top: 3rem;
+   padding-top: 3rem;
+   /* background-image: linear-gradient(90deg, #dde5f8, transparent); */
 }
 .hero{
    margin-top: 5rem;
