@@ -2,6 +2,8 @@ import Home from "./components/Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { lazy, Suspense } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./app.css";
 
 const Register = lazy(() => import("./components/Register/Register"));
@@ -22,6 +24,7 @@ function App() {
           </Suspense>
         </main>
       </BrowserRouter>
+      <ToastContainer />
     </>
   );
 }

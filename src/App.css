@@ -8,6 +8,12 @@
    min-height: 90vh;
 }
 
+.toastify {
+   font-weight: 500;
+   font-size: 0.9rem;
+   color: var(--black);
+}
+
 /* width */
 ::-webkit-scrollbar {
    width: 10px;
