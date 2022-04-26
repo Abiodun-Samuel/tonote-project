@@ -35,7 +35,7 @@
 
 .input-icon {
     position: absolute;
-    z-index: 10000;
+    z-index: 1;
     margin-left: 10px;
     color: #929292;
 }
@@ -138,7 +138,7 @@ color: var(--white);
 }
 
 .instructions {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     border-radius: 0.5rem;
     padding: 0.5rem;
     position: absolute !important;

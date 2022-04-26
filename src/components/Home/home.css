@@ -1,7 +1,6 @@
 #home{
    background: #ffffff;
    padding-top: 3rem;
-   /* background-image: linear-gradient(90deg, #dde5f8, transparent); */
 }
 .hero{
    margin-top: 5rem;
@@ -49,7 +48,7 @@
    position: relative;
 }
 .hero_main{
-   max-width: 90%;
+   max-width: 100%;
    position: relative;
 }
 .hero_one{
