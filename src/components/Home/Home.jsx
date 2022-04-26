@@ -3,13 +3,17 @@ import { FaSignInAlt } from "react-icons/fa";
 import hero from "../../images/hero.webp";
 import hero1 from "../../images/hero1.svg";
 import hero2 from "../../images/hero2.svg";
+import hero3 from "../../images/hero3.svg";
 import "./home.css";
 
 const Home = () => {
+  const images = [hero1, hero2, hero3];
+
   return (
     <>
       <div id="home">
         <div className="container">
+          {/* hero section  */}
           <div className="row">
             <div className="col-lg-6 my-3">
               <div className="hero">
@@ -32,15 +36,32 @@ const Home = () => {
             </div>
             <div className="col-lg-6 my-3">
               <div className="hero-img">
-                {/* <img
-                  src={hero1}
-                  alt="heroimage"
-                  className="shadow-lg hero_one"
-                /> */}
                 <img src={hero} alt="hero" className="hero_main" />
-                {/* <img src={hero2} alt="hero" className="shadow-lg hero_two" /> */}
               </div>
             </div>
+          </div>
+
+          {/* card display section  */}
+          <div className="row my-5">
+            {images.map((img, index) => (
+              <div
+                className="col-lg-4 col-md-6 col-sm-6 my-3"
+                key={img + index}
+              >
+                <div class="card shadow-lg border-0">
+                  <img
+                    src={img}
+                    class="card-img-top p-1"
+                    alt="images"
+                    height="200"
+                    width="auto"
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">Lorem, ipsum dolor.</h5>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

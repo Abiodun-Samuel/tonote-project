@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import { lazy, Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./components/Footer/Footer";
 // import "./app.css";
 
 const Register = lazy(() => import("./components/Register/Register"));
@@ -23,6 +24,7 @@ function App() {
             </Routes>
           </Suspense>
         </main>
+        <Footer />
       </BrowserRouter>
       <ToastContainer />
     </>

@@ -1,11 +1,10 @@
 .register{
-  background-image: linear-gradient(0deg, red, url('../../images/register-bg.jpg'));
-   /* background: url('../../images/register-bg.jpg') no-repeat; */
+  background: url('../../images/register-bg.jpg') no-repeat;
    background-size: cover;
    background-position: center;
    min-height: 100vh;
    display: flex;
-   /* padding-top: 5rem; */
+   padding-top: 4rem;
    justify-content: center;
    align-items: center;
    position: relative;
