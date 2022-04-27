@@ -96,13 +96,14 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // prevent javascript submission button hack
+    // prevent submission button hack using inspect elemnts
+    //return if there's an invalid input
     const p1 = USER_REGEX.test(userName);
     const p2 = EMAIL_REGEX.test(userEmail);
     const p3 = PHONE_REGEX.test(userPhone);
 
     if (!p1 || !p2 || !p3 || !validDate || !validGender) {
-      toastMessage("error", "Invalid Input");
+      toastMessage("error", "Invalid Input(s)");
       return;
     }
 
