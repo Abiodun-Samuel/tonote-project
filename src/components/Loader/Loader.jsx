@@ -4,12 +4,12 @@ const Loader = () => {
   return (
     <>
       <div
-        className="d-flex justify-content-center align-items-center fade show"
+        className="container d-flex justify-content-center align-items-center fade show"
         style={{
           height: "100vh",
           width: "100vw",
           backgroundColor: "rgba(255,255,255,0.4)",
-          position: "absolute",
+          position: "relative",
           top: 0,
           bottom: 0,
           right: 0,

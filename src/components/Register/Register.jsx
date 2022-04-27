@@ -310,8 +310,6 @@ const Register = () => {
                             />
                           </label>
                           <select
-                            // value={"DEFAULT"}
-                            // defaultValue={"DEFAULT"}
                             className={validGender ? "validinput" : ""}
                             name="gender"
                             id="gender"
