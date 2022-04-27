@@ -45,7 +45,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="container">
+      <div className="container bg-white">
         <div className="text-center my-5">
           <h3 className="font-weight-bold h1 text-danger">Upcoming Events</h3>
           <p className="h6 my-2">
@@ -59,10 +59,10 @@ const Home = () => {
         <div className="row my-5 py-5">
           {images.map((img, index) => (
             <div className="col-lg-4 col-md-6 col-sm-6 my-3" key={img + index}>
-              <div class="card shadow-lg border-0 rounded">
+              <div className="card shadow-lg border-0 rounded">
                 <img
                   src={img}
-                  class="card-img-top p-1"
+                  className="card-img-top p-1"
                   alt="images"
                   height="200"
                   width="auto"

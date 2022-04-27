@@ -310,6 +310,8 @@ const Register = () => {
                             />
                           </label>
                           <select
+                            // value={"DEFAULT"}
+                            // defaultValue={"DEFAULT"}
                             className={validGender ? "validinput" : ""}
                             name="gender"
                             id="gender"
@@ -317,7 +319,7 @@ const Register = () => {
                             onChange={(e) => {
                               setGender(e.target.value);
                             }}
-                            value={gender}
+                            value={gender || "DEFAULT"}
                             required
                             placeholder="Select your gender"
                             aria-invalid={validGender ? "false" : "true"}
@@ -327,7 +329,7 @@ const Register = () => {
                             }}
                             onBlur={() => setGenderFocus(false)}
                           >
-                            <option value="" selected disabled>
+                            <option value="DEFAULT" disabled>
                               -- Gender --
                             </option>
                             <option value="Male">Male</option>
