@@ -75,6 +75,7 @@ const Register = () => {
   }, [gender]);
 
   useEffect(() => {
+    //Must be 18years old and above -- lols
     if (date) {
       const year = date.substring(0, 4);
       if (Number(new Date().getFullYear()) < Number(year)) {
