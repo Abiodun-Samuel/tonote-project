@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./register.css";
 import {
   FaCheck,
@@ -13,6 +13,7 @@ import { USER_REGEX, EMAIL_REGEX, PHONE_REGEX } from "../../utils/constants";
 import { RiMailFill } from "react-icons/ri";
 import QRCode from "qrcode";
 import { randomString, toastMessage } from "../../utils/helper";
+import { QrReader } from "react-qr-reader";
 
 const Register = () => {
   const userNameRef = useRef();
@@ -108,7 +109,12 @@ const Register = () => {
     }
 
     try {
-      const response = await QRCode.toDataURL(`Name: ` + userName);
+      const response = await QRCode.toDataURL(`FullName: ${userName},
+      \n Email: ${userEmail},
+      \n Phone: ${userPhone},
+      \n Gender: ${gender},
+      \n DOB: ${date}`);
+
       setImageURL(response);
       setSuccess(true);
       toastMessage(
@@ -134,19 +140,28 @@ const Register = () => {
     }
   };
 
+  const [qrscan, setQrscan] = useState("");
+  const handleScan = (data) => {
+    if (data) {
+      setQrscan(data);
+    }
+  };
+  const handleError = (err) => {
+    // console.error(err);
+  };
+
   return (
     <>
       <div className="register-top"></div>
       <div className="register">
         <div className="container">
-          <div className="row d-flex justify-content-center">
-            <div className="col-lg-7 col-md-12">
-              <div className="register-box p-4 shadow-lg rounded">
-                {!success ? (
-                  <>
+          {!success ? (
+            <>
+              <div className="row d-flex justify-content-center">
+                <div className="col-lg-7 col-md-12">
+                  <div className="register-box p-4 shadow-lg rounded">
                     <h1>Register</h1>
                     <hr />
-
                     <form onSubmit={handleSubmit}>
                       {/* fullname field */}
                       <div className="form-row my-4">
@@ -413,11 +428,20 @@ const Register = () => {
                         </span>
                       </button>
                     </form>
-                  </>
-                ) : (
-                  //display screen after submission
-                  <div>
-                    <h1>Ticket Id: {randomString(10)}</h1>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (
+            //display screen after submission
+            <>
+              <div className="row d-flex justify-content-center">
+                <div className="col-lg-6 col-md-6 col-sm-6 my-2">
+                  <div className="register-box py-2 px-4 shadow-lg rounded">
+                    <p>
+                      <b className="text-primary"> Ticket Id: </b>
+                      {randomString(10)}
+                    </p>
                     <hr />
                     <p className="my-0 py-0">
                       <strong>Fullname:</strong> {ticketDetails.userName}
@@ -436,7 +460,7 @@ const Register = () => {
                     </p>
                     {imageURL && (
                       <>
-                        <div className="my-2">
+                        <div className="text-center">
                           <img
                             src={imageURL}
                             alt="qrcode"
@@ -444,7 +468,7 @@ const Register = () => {
                           />
                         </div>
                         <hr />
-                        <div className="my-2">
+                        <div>
                           <a
                             href={imageURL}
                             className="d-flex justify-content-center align-items-center shadow-lg btn_one my-3"
@@ -456,10 +480,36 @@ const Register = () => {
                       </>
                     )}
                   </div>
-                )}
+                </div>
+                <div className="col-lg-6 col-md-6 col-sm-6 my-2">
+                  <div className="register-box shadow-lg py-2 px-4 text-center rounded">
+                    <p className="text-primary my-0 py-0">
+                      <b>Scan QrCode</b>
+                    </p>
+                    <QrReader
+                      delay={300}
+                      onError={handleError}
+                      onScan={handleScan}
+                      onResult={(result, error) => {
+                        if (!!result) {
+                          setQrscan(result?.text);
+                        }
+
+                        if (!!error) {
+                          // console.info(error);
+                        }
+                      }}
+                      style={{ height: 150, width: 150 }}
+                    />
+                    <p>
+                      <b className="text-primary my-0 py-0">Scan Result</b>
+                    </p>
+                    <p> {qrscan}</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </div>
     </>
