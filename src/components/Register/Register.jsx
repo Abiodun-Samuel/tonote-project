@@ -483,24 +483,28 @@ const Register = () => {
                 </div>
                 <div className="col-lg-6 col-md-6 col-sm-6 my-2">
                   <div className="register-box shadow-lg py-2 px-4 text-center rounded">
-                    <p className="text-primary my-0 py-0">
-                      <b>Scan QrCode</b>
-                    </p>
-                    <QrReader
-                      delay={300}
-                      onError={handleError}
-                      onScan={handleScan}
-                      onResult={(result, error) => {
-                        if (!!result) {
-                          setQrscan(result?.text);
-                        }
+                    {!qrscan && (
+                      <>
+                        <p className="text-primary my-0 py-0">
+                          <b>Scan QrCode</b>
+                        </p>
+                        <QrReader
+                          delay={300}
+                          onError={handleError}
+                          onScan={handleScan}
+                          onResult={(result, error) => {
+                            if (!!result) {
+                              setQrscan(result?.text);
+                            }
+                            if (!!error) {
+                              // console.info(error);
+                            }
+                          }}
+                          style={{ height: 150, width: 150 }}
+                        />
+                      </>
+                    )}
 
-                        if (!!error) {
-                          // console.info(error);
-                        }
-                      }}
-                      style={{ height: 150, width: 150 }}
-                    />
                     <p>
                       <b className="text-primary my-0 py-0">Scan Result</b>
                     </p>
